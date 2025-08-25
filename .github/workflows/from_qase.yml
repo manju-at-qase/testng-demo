@@ -41,6 +41,11 @@ jobs:
       - name: Install Dependencies
         run: mvn clean install -DskipTests -B -X
 
+      - name: Cleanup previous Chrome processes
+        run: |
+          pkill -f chrome || true
+          pkill -f chromedriver || true
+
       - name: Run TestNG tests
         run: |
           java \
