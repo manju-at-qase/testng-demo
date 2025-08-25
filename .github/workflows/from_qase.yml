@@ -50,5 +50,7 @@ jobs:
         run: |
           java \
           -javaagent:$HOME/.m2/repository/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar \
+          --add-opens java.base/java.lang=ALL-UNNAMED \
+          --add-opens java.base/java.util=ALL-UNNAMED \
           -cp "target/classes:target/test-classes:libs/*" \
           com.example.base.TestRunner
