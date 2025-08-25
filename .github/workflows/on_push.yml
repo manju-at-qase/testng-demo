@@ -37,6 +37,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Kill Chrome and ChromeDriver processes
+        run: |
+          pkill -f chrome || true
+          pkill -f chromedriver || true
+
       - name: Compile project (Maven only for deps + build)
         run: mvn clean install -DskipTests
 
